@@ -43,3 +43,5 @@
 /Users/Koo/VsBowling/Vs Bowling/Temp/bin/Debug/Mono.Cecil.Pdb.dll
 /Users/Koo/VsBowling/Vs Bowling/Temp/bin/Debug/Mono.Cecil.Mdb.dll
 >>>>>>> 458a90a74047090f422bf9f890222b0953466c25
+/Users/e165729/Desktop/VsBowling/Vs Bowling/Temp/bin/Debug/UnityEngine.Advertisements.dll
+/Users/e165729/Desktop/VsBowling/Vs Bowling/Temp/bin/Debug/UnityEngine.Purchasing.dll
