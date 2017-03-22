@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class BallScript : MonoBehaviour {
-	private float speed = 50.0f;
+	private float speed = 25.0f;
 	Slider m_slider;
 	GameObject PowerUI;
 	int pushCount;
