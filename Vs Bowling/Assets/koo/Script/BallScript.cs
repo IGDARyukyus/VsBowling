@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BallScript : MonoBehaviour {
-	private float speed = 2.0f;
+	private float speed = 5.0f;
 
 	// Use this for initialization
 	void Start () {
