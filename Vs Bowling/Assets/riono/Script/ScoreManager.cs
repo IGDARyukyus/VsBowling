@@ -46,7 +46,7 @@ public class ScoreManager : MonoBehaviour {
 	// スコアの判断
 	void JudgeScore(){
 		// ピンが倒されたら
-		// Score = GetJudgeCollapses ();
+		// Score = GetJudgeFall ();
 		if (Input.GetKeyDown (KeyCode.Space)) {     // ピンが倒された時orガーターになった時
 			Score = 1;
 		
