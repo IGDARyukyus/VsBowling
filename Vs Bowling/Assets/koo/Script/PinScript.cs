@@ -7,6 +7,10 @@ public class PinScript : MonoBehaviour {
 	float PinX;
 	float PinZ;
 	bool FallPin;
+	int FallCount = 0;
+
+	public PinCount pinCount;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -21,7 +25,18 @@ public class PinScript : MonoBehaviour {
 			FallPin = true;
 		}
 		print(FallPin);
-		print (PinX);
-		print (PinZ);
+//		print (PinX);
+//		print (PinZ);
+
+		PinJudge ();
+	}
+
+	void PinJudge(){
+		if (FallPin && FallCount == 0) {
+			pinCount.SetJudgeFall ();
+			Debug.Log (pinCount.GetJudgeFall ());
+			FallCount = 1;
+			Destroy (this.gameObject, 3);
+		}
 	}
 }
