@@ -1,3 +1,26 @@
+<<<<<<< HEAD
+/Users/e165729/Desktop/VsBowling/Vs Bowling/Temp/bin/Debug/Assembly-CSharp.dll.mdb
+/Users/e165729/Desktop/VsBowling/Vs Bowling/Temp/bin/Debug/Assembly-CSharp.dll
+/Users/e165729/Desktop/VsBowling/Vs Bowling/obj/Debug/Assembly-CSharp.dll
+/Users/e165729/Desktop/VsBowling/Vs Bowling/obj/Debug/Assembly-CSharp.dll.mdb
+/Users/e165729/Desktop/VsBowling/Vs Bowling/Temp/bin/Debug/UnityEngine.dll
+/Users/e165729/Desktop/VsBowling/Vs Bowling/Temp/bin/Debug/UnityEditor.dll
+/Users/e165729/Desktop/VsBowling/Vs Bowling/Temp/bin/Debug/UnityEngine.UI.dll
+/Users/e165729/Desktop/VsBowling/Vs Bowling/Temp/bin/Debug/UnityEngine.Networking.dll
+/Users/e165729/Desktop/VsBowling/Vs Bowling/Temp/bin/Debug/UnityEngine.PlaymodeTestsRunner.dll
+/Users/e165729/Desktop/VsBowling/Vs Bowling/Temp/bin/Debug/UnityEngine.Analytics.dll
+/Users/e165729/Desktop/VsBowling/Vs Bowling/Temp/bin/Debug/UnityEngine.HoloLens.dll
+/Users/e165729/Desktop/VsBowling/Vs Bowling/Temp/bin/Debug/UnityEngine.VR.dll
+/Users/e165729/Desktop/VsBowling/Vs Bowling/Temp/bin/Debug/Mono.Cecil.dll
+/Users/e165729/Desktop/VsBowling/Vs Bowling/Temp/bin/Debug/Unity.SerializationLogic.dll
+/Users/e165729/Desktop/VsBowling/Vs Bowling/Temp/bin/Debug/Unity.DataContract.dll
+/Users/e165729/Desktop/VsBowling/Vs Bowling/Temp/bin/Debug/ICSharpCode.NRefactory.dll
+/Users/e165729/Desktop/VsBowling/Vs Bowling/Temp/bin/Debug/Unity.UNetWeaver.dll
+/Users/e165729/Desktop/VsBowling/Vs Bowling/Temp/bin/Debug/Unity.UNetWeaver.dll.mdb
+/Users/e165729/Desktop/VsBowling/Vs Bowling/Temp/bin/Debug/Unity.CecilTools.dll
+/Users/e165729/Desktop/VsBowling/Vs Bowling/Temp/bin/Debug/Mono.Cecil.Pdb.dll
+/Users/e165729/Desktop/VsBowling/Vs Bowling/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+=======
 /Users/Koo/VsBowling/Vs Bowling/Temp/bin/Debug/Assembly-CSharp.dll.mdb
 /Users/Koo/VsBowling/Vs Bowling/Temp/bin/Debug/Assembly-CSharp.dll
 /Users/Koo/VsBowling/Vs Bowling/obj/Debug/Assembly-CSharp.dll
@@ -19,3 +42,4 @@
 /Users/Koo/VsBowling/Vs Bowling/Temp/bin/Debug/Unity.CecilTools.dll
 /Users/Koo/VsBowling/Vs Bowling/Temp/bin/Debug/Mono.Cecil.Pdb.dll
 /Users/Koo/VsBowling/Vs Bowling/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+>>>>>>> 458a90a74047090f422bf9f890222b0953466c25
