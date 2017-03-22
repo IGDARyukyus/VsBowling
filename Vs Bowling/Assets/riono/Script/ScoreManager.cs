@@ -1,30 +1,41 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour {
 
+	// 何フレーム目か
 	private int Flame;
-	private bool Turn;            
+	private bool Turn;
+	// 何投目か
 	private int bowling;
 
+	// 1投のごとのスコア
 	private int Score;
-	private int TotalScore;
+	// 合計得点
+	private int TotalScore = 0;
+	// 1フレームのスコア
 	private int FlameScore = 0;
+
+	public Text[] FirstScore = new Text[2];
+	public Text[] SecondScore = new Text[2];
+	public Text[] SumScore = new Text[2];
 
 
 	void Start(){
-		Score = 0;
-		Flame = 1;
+		Score = -1;
+		Flame = 0;
 		Turn = true;
-		bowling = 0;    // ボールスクリプトから受け取る
+		bowling = 0;    // ボールスクリプトから受け取る？
 	}
 
 	void Update(){
 		if (Turn) {
-			CalcScore ();
+			JudgeScore ();
 			DisplayScore ();
 		}
+		// 相手のターンが終了したら
 		if (Input.GetKeyDown (KeyCode.A)) {
 			Debug.Log ("restart");
 			Turn = true;
@@ -32,12 +43,12 @@ public class ScoreManager : MonoBehaviour {
 		}
 	}
 		
-	// スコアの計算
-	void CalcScore(){
-		// 判定を受ける
+	// スコアの判断
+	void JudgeScore(){
+		// ピンが倒されたら
 		// Score = GetJudgeCollapses ();
-		if (Input.GetKeyDown (KeyCode.Space)) {
-			Score += 1;
+		if (Input.GetKeyDown (KeyCode.Space)) {     // ピンが倒された時orガーターになった時
+			Score = 1;
 		
 			FlameScore += Score;
 	
@@ -47,23 +58,39 @@ public class ScoreManager : MonoBehaviour {
 		
 			} else if (Score >= 1) {         // 二投目に移行
 				bowling++;
+
 			}	
 		}
+
+		// ガーターになった時
+
+	}
+
+	// スコアの計算
+	void CulcScore(){
 	}
 
 	// スコアの表示
 	void DisplayScore(){
 		// 配列 デバッグログ
-		if (bowling == 1) {
+		if (Score == -1) {
+			Debug.Log ("投球を開始してください。");
+
+		}else if (bowling == 1) {
 			Debug.Log ("Scoref:" + Score + "\nFlameScore:" + FlameScore + " bowling:" + bowling);
+			FirstScore[Flame].text = Score.ToString();
+
 		} else if (bowling == 2) {
 			Debug.Log ("ScoreSecond:" + Score + "\nFlameScore:" + FlameScore + " bowling:" + bowling);
+			TotalScore += FlameScore;
+
+			SecondScore[Flame].GetComponent<Text> ().text = Score.ToString();
+			SumScore[Flame].GetComponent<Text> ().text =TotalScore.ToString();
+
 			FlameScore = 0;
 			Turn = false;
-		} else {
-			Debug.Log ("投球を開始してください。");
-		}
-
-		Score = 0;
+			Flame++;
+		} 
+		Score = -1;
 	}
 }
