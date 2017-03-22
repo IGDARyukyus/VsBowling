@@ -24,5 +24,8 @@ public class PinCount : MonoBehaviour {
 		return FellPin;
 	}
 
+	public void ResetJudgeFall(){
+		FellPin = 0;
+	}
 
 }

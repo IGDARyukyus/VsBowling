@@ -18,6 +18,8 @@ public class ScoreManager : MonoBehaviour {
 	// 1フレームのスコア
 	private int FlameScore = 0;
 
+	public PinCount pinCount;
+
 	public Text[] FirstScore = new Text[2];
 	public Text[] SecondScore = new Text[2];
 	public Text[] SumScore = new Text[2];
@@ -31,10 +33,12 @@ public class ScoreManager : MonoBehaviour {
 	}
 
 	void Update(){
-		if (Turn) {
-			JudgeScore ();
-			DisplayScore ();
+		if (pinCount.GetJudgeFall() >= 1) {   // どれかのピンが倒されてから5秒後
+			StartCoroutine (CulcScore ());
 		}
+		// ガーターの場合
+
+
 		// 相手のターンが終了したら
 		if (Input.GetKeyDown (KeyCode.A)) {
 			Debug.Log ("restart");
@@ -42,33 +46,32 @@ public class ScoreManager : MonoBehaviour {
 			bowling = 0;
 		}
 	}
+
+	private IEnumerator CulcScore(){
+		// スコアの計算と表示
+		yield return new WaitForSeconds (5.0f);
+		if (pinCount.GetJudgeFall () != 0) {
+			JudgeScore ();
+			DisplayScore ();
+		}
+	}
 		
 	// スコアの判断
 	void JudgeScore(){
-		// ピンが倒されたら
-		// Score = GetJudgeFall ();
-		if (Input.GetKeyDown (KeyCode.Space)) {     // ピンが倒された時orガーターになった時
-			Score = 1;
+		// ピンを倒した時
+		Score = pinCount.GetJudgeFall ();
 		
-			FlameScore += Score;
+		FlameScore += Score;
 	
-			if (Score == 10) {               // ストライクを出した時
-				Turn = false; 
+		if (Score == 10) {               // ストライクを出した時
+			Turn = false; 
 				// ストライクの処理
-		
-			} else if (Score >= 1) {         // 二投目に移行
-				bowling++;
-
-			}	
+		} else if (Score >= 1) {        // 二投目に移行  条件内を投球カウントにする
+			bowling += 1;			
 		}
-
-		// ガーターになった時
-
+		pinCount.ResetJudgeFall ();
 	}
 
-	// スコアの計算
-	void CulcScore(){
-	}
 
 	// スコアの表示
 	void DisplayScore(){
@@ -89,7 +92,7 @@ public class ScoreManager : MonoBehaviour {
 
 			FlameScore = 0;
 			Turn = false;
-			Flame++;
+			//Flame++;
 		} 
 		Score = -1;
 	}
