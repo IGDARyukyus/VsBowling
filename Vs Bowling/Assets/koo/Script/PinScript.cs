@@ -24,7 +24,7 @@ public class PinScript : MonoBehaviour {
 		   60.0f < PinZ && PinZ < 90.0f || -60.0f > PinZ && PinZ > -90.0f){
 			FallPin = true;
 		}
-		print(FallPin);
+		//print(FallPin);
 //		print (PinX);
 //		print (PinZ);
 
@@ -34,9 +34,9 @@ public class PinScript : MonoBehaviour {
 	void PinJudge(){
 		if (FallPin && FallCount == 0) {
 			pinCount.SetJudgeFall ();
-			Debug.Log (pinCount.GetJudgeFall ());
+			//Debug.Log (pinCount.GetJudgeFall ());
 			FallCount = 1;
-			Destroy (this.gameObject, 3);
+			Destroy (this.gameObject, 2);
 		}
 	}
 }
