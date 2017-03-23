@@ -9,7 +9,7 @@ public class ScoreManager : MonoBehaviour {
 	private int Flame;
 	private bool Turn;
 	// 何投目か
-	private int bowling;
+	private int Bowling;
 
 	// 1投のごとのスコア
 	private int Score;
@@ -29,12 +29,12 @@ public class ScoreManager : MonoBehaviour {
 		Score = -1;
 		Flame = 0;
 		Turn = true;
-		bowling = 0;    // ボールスクリプトから受け取る？
+		Bowling = 0;
 	}
 
 	void Update(){
 		if (pinCount.GetJudgeFall() >= 1) {   // どれかのピンが倒されてから5秒後
-			StartCoroutine (CulcScore ());
+			Invoke ("CulcScore", 7.0f);
 		}
 		// ガーターの場合
 
@@ -43,13 +43,12 @@ public class ScoreManager : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.A)) {
 			Debug.Log ("restart");
 			Turn = true;
-			bowling = 0;
+			Bowling = 0;
 		}
 	}
 
-	private IEnumerator CulcScore(){
+	void CulcScore(){
 		// スコアの計算と表示
-		yield return new WaitForSeconds (5.0f);
 		if (pinCount.GetJudgeFall () != 0) {
 			JudgeScore ();
 			DisplayScore ();
@@ -63,11 +62,11 @@ public class ScoreManager : MonoBehaviour {
 		
 		FlameScore += Score;
 	
-		if (Score == 10) {               // ストライクを出した時
+		if (Score == 100) {               // ストライクを出した時
 			Turn = false; 
 				// ストライクの処理
 		} else if (Score >= 1) {        // 二投目に移行  条件内を投球カウントにする
-			bowling += 1;			
+			Bowling += 1;			
 		}
 		pinCount.ResetJudgeFall ();
 	}
@@ -79,12 +78,12 @@ public class ScoreManager : MonoBehaviour {
 		if (Score == -1) {
 			Debug.Log ("投球を開始してください。");
 
-		}else if (bowling == 1) {
-			Debug.Log ("Scoref:" + Score + "\nFlameScore:" + FlameScore + " bowling:" + bowling);
+		}else if (Bowling == 1) {
+			//Debug.Log ("Scoref:" + Score + "\nFlameScore:" + FlameScore + " bowling:" + Bowling);
 			FirstScore[Flame].text = Score.ToString();
 
-		} else if (bowling == 2) {
-			Debug.Log ("ScoreSecond:" + Score + "\nFlameScore:" + FlameScore + " bowling:" + bowling);
+		} else if (Bowling == 2) {
+			//Debug.Log ("ScoreSecond:" + Score + "\nFlameScore:" + FlameScore + " bowling:" + Bowling);
 			TotalScore += FlameScore;
 
 			SecondScore[Flame].GetComponent<Text> ().text = Score.ToString();
@@ -92,8 +91,17 @@ public class ScoreManager : MonoBehaviour {
 
 			FlameScore = 0;
 			Turn = false;
-			//Flame++;
+			Flame++;
 		} 
 		Score = -1;
 	}
+
+	public int GetBowling(){
+		return Bowling;
+	}
+
+	public bool GetIsTurn(){
+		return Turn;
+	}
+
 }
